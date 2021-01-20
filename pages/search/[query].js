@@ -1,14 +1,20 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import dynamic from "next/dynamic";
+import { Drawer } from "antd";
+import { useRouter } from "next/router";
 
 const NavBar = dynamic(() => import("../../components/Navbar"));
 
 const Category = dynamic(() => import("../../components/Category"));
 const SearchBar = dynamic(() => import("../../components/SearchBar"));
 const ProdCard = dynamic(() => import("../../components/ProductCard"));
+const InfoScreen = dynamic(() => import("../../components/ProductInfo"));
 
 export default function SearchPage(props) {
+  const router = useRouter();
+  console.log(router.query);
+
   const prods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const tempimage = "/images/MenStyle.jpg";
   const category = [
@@ -27,6 +33,8 @@ export default function SearchPage(props) {
     "Jewellery",
   ];
 
+  const [visible, setVisible] = React.useState(false);
+
   return (
     <>
       <NavBar />
@@ -35,7 +43,13 @@ export default function SearchPage(props) {
         <Category data={category} />
         <Row>
           {prods.map((item, index) => (
-            <Col xs="6" md="3" key={index} className="p-2">
+            <Col
+              onClick={() => setVisible(true)}
+              xs="6"
+              md="3"
+              key={index}
+              className="p-2"
+            >
               <ProdCard
                 img={tempimage}
                 user_image={tempimage}
@@ -46,6 +60,15 @@ export default function SearchPage(props) {
           ))}
         </Row>
       </Container>
+      <Drawer
+        height="95%"
+        onClose={() => setVisible(false)}
+        placement="bottom"
+        closable={false}
+        visible={visible}
+      >
+        <InfoScreen />
+      </Drawer>
     </>
   );
 }
