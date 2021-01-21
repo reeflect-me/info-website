@@ -11,8 +11,7 @@ export default function InfoScreen(props) {
       <div
         style={{
           backgroundColor: "white",
-          height: "90vh",
-          width: "100vw",
+          height: "50vh",
         }}
       >
         <div className="container">
@@ -41,6 +40,7 @@ export default function InfoScreen(props) {
                     <span
                       style={{
                         paddingLeft: "6%",
+                        fontSize: "150%"
                       }}
                     >
                       Angel Priya

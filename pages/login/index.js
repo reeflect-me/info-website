@@ -10,6 +10,7 @@ const NavBar = dynamic(() => import("../../components/Navbar"));
 
 function Login({ providers }) {
   console.log(providers);
+
   return (
     <>
       <NavBar />
@@ -83,7 +84,8 @@ function Login({ providers }) {
                 </div>
               </Row>
             </div>
-            <div className="col-12 col-md-6 m-1"></div>
+            <div className="col-12 col-md-6 mt-5">
+            </div>
           </div>
         </Container>
       </div>

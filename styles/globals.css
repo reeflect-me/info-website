@@ -164,6 +164,7 @@ label.ant-radio-button-wrapper.ant-radio-button-wrapper-checked.radio-text
   color: rgb(225, 48, 108);
 }
 
+
 @media only screen and (max-width: 765px) {
   .imageDescription {
     margin-top: 10%;
